@@ -7,6 +7,7 @@ A classic Minesweeper game built entirely with **HTML, CSS, and JavaScript**. Fe
 **Goal:** Uncover all tiles that don't contain mines without triggering any mines.
 
 ### Controls:
+
 - **Left Click / Space:** Reveal a cell
 - **Right Click / F key:** Flag/unflag a suspected mine
 - **Arrow Keys / WASD:** Navigate the board (keyboard mode)
@@ -14,6 +15,7 @@ A classic Minesweeper game built entirely with **HTML, CSS, and JavaScript**. Fe
 - **Long Press (Mobile):** Flag a cell
 
 ### Game Rules:
+
 - Numbers show how many mines are adjacent to that cell (including diagonally)
 - If you click on a mine, you lose!
 - Flag cells you suspect contain mines
@@ -21,11 +23,11 @@ A classic Minesweeper game built entirely with **HTML, CSS, and JavaScript**. Fe
 
 ## 🎯 Difficulty Levels
 
-| Difficulty | Grid Size | Mines | Description |
-|------------|-----------|-------|-------------|
-| Beginner | 9×9 | 10 | Perfect for learning |
-| Intermediate | 16×16 | 40 | Moderate challenge |
-| Expert | 30×16 | 99 | For seasoned players |
+| Difficulty   | Grid Size | Mines | Description          |
+| ------------ | --------- | ----- | -------------------- |
+| Beginner     | 9×9       | 10    | Perfect for learning |
+| Intermediate | 16×16     | 40    | Moderate challenge   |
+| Expert       | 30×16     | 99    | For seasoned players |
 
 ## 🚀 Running Locally
 
@@ -52,6 +54,7 @@ python -m http.server 8000
 ## ✨ Features
 
 ### 🎨 Ultra-Minimalistic Design
+
 - **Dark mode interface** with geometric, clean layouts
 - **Monochromatic color palette** using gray-scale variations
 - **System font typography** with light weights (300-400)
@@ -59,6 +62,7 @@ python -m http.server 8000
 - **Flat design** with subtle state changes
 
 ### 🎬 Subtle Animations
+
 - **Smooth cascading reveals** with staggered timing across the board
 - **Number count-up animation** with scale and opacity effects
 - **Gentle pulse on hover** for unrevealed cells
@@ -66,18 +70,21 @@ python -m http.server 8000
 - **Touch-optimized** with animations disabled on mobile for performance
 
 ### ♿ Accessibility
+
 - Full keyboard navigation support (Arrow keys, WASD, Space, F, R)
 - Screen reader friendly with ARIA labels and semantic HTML
 - Clean focus indicators for keyboard users
 - High contrast design for readability
 
 ### 📱 Mobile Optimized
+
 - Touch-friendly controls with long-press flagging
 - Responsive grid sizing for all screen sizes
 - Optimized cell dimensions for mobile interaction
 - Performance-optimized animations
 
 ### 🎯 Game Features
+
 - **Three difficulty levels** with configurable mine counts
 - **Timer and mine counter** with monospace font styling
 - **Geometric symbols**: Simple bullet (●) for mines, flag (⚑) for flagged cells
@@ -87,6 +94,7 @@ python -m http.server 8000
 ## 🛠️ Technical Details
 
 ### File Structure
+
 ```
 docs/
 ├── index.html      # Main HTML structure
@@ -95,6 +103,7 @@ docs/
 ```
 
 ### Key Functions
+
 - `createBoard()` - Generates game grid and places mines
 - `revealCell()` - Handles cell revelation with cascading animations
 - `flagCell()` - Manages mine flagging with visual feedback
@@ -104,6 +113,7 @@ docs/
 - `revealMinesWithRipple()` - Sequential mine revelation on game over
 
 ### Browser Compatibility
+
 - Chrome 60+
 - Firefox 55+
 - Safari 12+
@@ -115,52 +125,82 @@ docs/
 Want to modify the game? Here are some easy customizations:
 
 ### Change Dark Mode Colors
+
 Edit the color variables in `style.css`:
+
 ```css
 /* Dark mode color palette */
-body { background: #111827; color: #f9fafb; }
-.game-container { background: #1f2937; border: 1px solid #374151; }
-.cell { background: #374151; border: 1px solid #6b7280; }
-.cell.revealed { background: #1f2937; }
+body {
+  background: #111827;
+  color: #f9fafb;
+}
+.game-container {
+  background: #1f2937;
+  border: 1px solid #374151;
+}
+.cell {
+  background: #374151;
+  border: 1px solid #6b7280;
+}
+.cell.revealed {
+  background: #1f2937;
+}
 ```
 
 ### Customize Animations
+
 Modify animation timing and effects:
+
 ```css
 /* Adjust animation speeds */
-@keyframes cell-reveal { /* 0.3s duration */ }
-@keyframes gentle-pulse { /* 2s infinite */ }
-@keyframes mine-explosion { /* 0.6s duration */ }
+@keyframes cell-reveal {
+  /* 0.3s duration */
+}
+@keyframes gentle-pulse {
+  /* 2s infinite */
+}
+@keyframes mine-explosion {
+  /* 0.6s duration */
+}
 ```
 
 ### Add New Difficulty
+
 In `minesweeper.js`, add to the difficulties object:
+
 ```javascript
 this.difficulties = {
-    // existing difficulties...
-    custom: { width: 20, height: 20, mines: 50 }
+  // existing difficulties...
+  custom: { width: 20, height: 20, mines: 50 },
 };
 ```
 
 ### Disable Animations
+
 For users who prefer reduced motion:
+
 ```css
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 ```
 
 ## 📸 Screenshots
 
 ### Dark Mode Interface
+
 ![Desktop Screenshot](https://via.placeholder.com/800x600/111827/f9fafb?text=Ultra-Minimalistic+Dark+Mode)
 
 ### Mobile Experience
+
 ![Mobile Screenshot](https://via.placeholder.com/400x700/1f2937/9ca3af?text=Touch-Optimized+Design)
 
 ## 🤝 Contributing
 
-Found a bug or want to add a feature? 
+Found a bug or want to add a feature?
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
