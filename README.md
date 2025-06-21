@@ -190,13 +190,7 @@ For users who prefer reduced motion:
 
 ## 📸 Screenshots
 
-### Dark Mode Interface
-
-![Desktop Screenshot](https://via.placeholder.com/800x600/111827/f9fafb?text=Ultra-Minimalistic+Dark+Mode)
-
-### Mobile Experience
-
-![Mobile Screenshot](https://via.placeholder.com/400x700/1f2937/9ca3af?text=Touch-Optimized+Design)
+![image](https://github.com/user-attachments/assets/d6019265-942b-4b6b-b9eb-cdf4c13ada20)
 
 ## 🤝 Contributing
 
@@ -229,7 +223,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Experience the ultra-minimalistic minesweeper with beautiful dark mode and subtle animations.**
 
-[**🚀 Play Now on GitHub Pages**](https://yourusername.github.io/minesweeper/)
+[**🚀 Play Now on GitHub Pages**](https://rw-pz.github.io/claude-minesweeper/)
 
 ---
 
