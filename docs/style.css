@@ -35,6 +35,12 @@ body {
   font-size: 1.5rem;
   font-weight: 300;
   letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.game-title:hover {
+  opacity: 0.7;
 }
 
 /* Controls */
@@ -156,6 +162,7 @@ body {
   display: flex;
   justify-content: center;
   overflow-x: auto;
+  max-width: 100%;
 }
 
 .game-board {
@@ -291,6 +298,12 @@ body {
   color: #9ca3af;
   border-top: 1px solid #374151;
   letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.game-message:hover {
+  background: #374151;
 }
 
 .game-message.win {
@@ -381,32 +394,95 @@ body {
     gap: 24px;
   }
 
+  .game-board-container {
+    padding: 20px 12px;
+  }
+
   /* Adjust cell sizes for mobile */
   .game-board.beginner {
-    grid-template-columns: repeat(9, 30px);
-    grid-template-rows: repeat(9, 30px);
+    grid-template-columns: repeat(9, 28px);
+    grid-template-rows: repeat(9, 28px);
   }
 
   .game-board.intermediate {
-    grid-template-columns: repeat(16, 24px);
-    grid-template-rows: repeat(16, 24px);
+    grid-template-columns: repeat(16, 20px);
+    grid-template-rows: repeat(16, 20px);
   }
 
   .game-board.expert {
-    grid-template-columns: repeat(30, 20px);
-    grid-template-rows: repeat(16, 20px);
+    grid-template-columns: repeat(30, 18px);
+    grid-template-rows: repeat(16, 18px);
   }
 }
 
 @media (max-width: 480px) {
-  .game-board.expert {
-    grid-template-columns: repeat(30, 18px);
+  .game-board-container {
+    padding: 16px 8px;
+  }
+
+  .game-board.beginner {
+    grid-template-columns: repeat(9, 26px);
+    grid-template-rows: repeat(9, 26px);
+  }
+
+  .game-board.intermediate {
+    grid-template-columns: repeat(16, 18px);
     grid-template-rows: repeat(16, 18px);
+  }
+
+  .game-board.expert {
+    grid-template-columns: repeat(30, 16px);
+    grid-template-rows: repeat(16, 16px);
   }
 
   .game-status {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .game-board-container {
+    padding: 12px 4px;
+  }
+
+  .game-board.beginner {
+    grid-template-columns: repeat(9, 24px);
+    grid-template-rows: repeat(9, 24px);
+  }
+
+  .game-board.intermediate {
+    grid-template-columns: repeat(16, 16px);
+    grid-template-rows: repeat(16, 16px);
+  }
+
+  .game-board.expert {
+    grid-template-columns: repeat(30, 14px);
+    grid-template-rows: repeat(16, 14px);
+  }
+
+  .cell {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .game-board-container {
+    padding: 8px 2px;
+  }
+
+  .game-board.intermediate {
+    grid-template-columns: repeat(16, 14px);
+    grid-template-rows: repeat(16, 14px);
+  }
+
+  .game-board.expert {
+    grid-template-columns: repeat(30, 12px);
+    grid-template-rows: repeat(16, 12px);
+  }
+
+  .cell {
+    font-size: 0.7rem;
   }
 }
 

@@ -18,6 +18,7 @@ class Minesweeper {
         this.flagCount = 0;
         this.revealedCount = 0;
         this.firstClick = true;
+        this.pendingTimeouts = [];
         
         // Current focus for keyboard navigation
         this.focusX = 0;
@@ -33,6 +34,7 @@ class Minesweeper {
         this.gameMessage = document.getElementById('game-message');
         this.clickSound = document.getElementById('click-sound');
         this.explosionSound = document.getElementById('explosion-sound');
+        this.gameTitle = document.querySelector('.game-title');
         
         this.init();
     }
@@ -46,6 +48,8 @@ class Minesweeper {
         
         this.newGameBtn.addEventListener('click', () => this.newGame());
         this.smiley.addEventListener('click', () => this.newGame());
+        this.gameTitle.addEventListener('click', () => this.newGame());
+        this.gameMessage.addEventListener('click', () => this.newGame());
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => this.handleKeyboard(e));
@@ -72,6 +76,10 @@ class Minesweeper {
             clearInterval(this.timer);
             this.timer = null;
         }
+        
+        // Clear all pending timeouts
+        this.pendingTimeouts.forEach(timeout => clearTimeout(timeout));
+        this.pendingTimeouts = [];
         
         // Get current difficulty settings
         const config = this.difficulties[this.currentDifficulty];
@@ -237,11 +245,12 @@ class Minesweeper {
         cell.appendChild(numberSpan);
         
         // Remove animation class after animation completes
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             if (numberSpan.parentNode) {
                 numberSpan.className = '';
             }
         }, 400);
+        this.pendingTimeouts.push(timeoutId);
     }
     
     handleCellClick(event, x, y) {
@@ -289,7 +298,7 @@ class Minesweeper {
         
         // If cell has no neighboring mines, reveal neighbors recursively with cascade delay
         if (this.board[y][x].neighborCount === 0) {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
                 for (let dy = -1; dy <= 1; dy++) {
                     for (let dx = -1; dx <= 1; dx++) {
                         if (dx === 0 && dy === 0) continue;
@@ -297,6 +306,7 @@ class Minesweeper {
                     }
                 }
             }, cascadeDepth * 15); // Small delay for cascade effect
+            this.pendingTimeouts.push(timeoutId);
         }
         
         this.checkWinCondition();
@@ -370,7 +380,7 @@ class Minesweeper {
         
         // Reveal mines with staggered timing for ripple effect
         mines.forEach((mine, index) => {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
                 this.board[mine.y][mine.x].isRevealed = true;
                 this.updateCellDisplay(mine.x, mine.y);
                 
@@ -379,6 +389,7 @@ class Minesweeper {
                     cell.classList.add('exploded');
                 }
             }, index * 50); // 50ms delay between each mine reveal
+            this.pendingTimeouts.push(timeoutId);
         });
     }
     
